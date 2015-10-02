@@ -1,34 +1,47 @@
 #!/bin/sh
-ADDONENAME=script
-RCDDIR=/usr/local/etc/config/rc.d
-ADDONDIR=/usr/local/etc/config/addons/$ADDONENAME
-WWWDIR=/usr/local/etc/config/addons/www/$ADDONENAME
-CONFIGDIR=/usr/local/etc/config
+
+ADDONNAME=script
+WWWDIR=/mnt/etc/config/addons/www/$ADDONNAME
+RCDDIR=/mnt/etc/config/rc.d
 
 mkdir -p /mnt
 
-if [ "$1" != "" ]; then
-	echo "CCU2"
-	mount -t ubifs ubi0:root /mnt
-	mount -t ubifs ubi1:user /usr/local
-	
-	#www
-	mkdir -p $WWWDIR
-	cp -R script /usr/local/etc/config/addons/www/
-	chmod 775 $WWWDIR
+if [ "$1" == "" ]; then
+    echo "CCU1"
+    mount -t yaffs /dev/mtdblock3 /mnt
+elif [ "$1" == "CCU2" ]; then
+    echo "CCU2"
+    mount -t ubifs ubi1:user /mnt
+elif [ "$1" == "HM-RASPBERRYMATIC" ]; then
+    echo "HM-RASPBERRYMATIC"
+    mount /usr/local
+    mount --bind /usr/local /mnt
+fi
 
-	cp ./scriptparser $RCDDIR
-	chmod +x /usr/local/etc/config/rc.d/scriptparser
+mkdir -p $WWWDIR
+cp -R $ADDONNAME/* $WWWDIR/
+chmod 755 $WWWDIR
 
-	echo "dismount"
-	umount /usr/local
-	umount /mnt
-else
-	echo "CCU1"
-	mount -t yaffs /dev/mtdblock3 /mnt
-	cp -R ./script /mnt/etc/config/addons/www/
-	cp ./scriptparser /mnt/etc/config/rc.d
-	chmod +x /mnt/etc/config/rc.d/scriptparser
+cp scriptparser $RCDDIR/
+chmod +x $RCDDIR/scriptparser
 
-	umount /mnt
+umount /mnt
+
+# sync filesystem to make sure all changes are written to disk
+sync
+
+if [ "$1" = "" ]; then
+        echo "CCU1"
+        lcdtool "Reboot...             "
+        lcdtool -a 0x40 -t bin 00
+        echo "x" > /dev/watchdog
+        reboot
+        while true ; do true ;  done
+elif [ "$1" = "CCU2" ]; then
+        echo "CCU2"
+        # CCU2 always reboots after Addon/Firmware Update
+elif [ "$1" = "HM-RASPBERRYMATIC" ]; then
+        echo "HM-RASPBERRYMATIC"
+        umount /usr/local
+        # RASPBERRYMATIC always reboots after Addon/Firmware Update
 fi

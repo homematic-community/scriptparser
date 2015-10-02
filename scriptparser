@@ -10,7 +10,7 @@ case "$1" in
         echo "Info: <center><b>erweiterter Script-Parser</b></center>"
         echo "Info: <center><br>Aufruf:<br><a href="/addons/script" target="_blank">http://IPAdressederCCU/addons/script</a></center>"
         echo "Name: erweiterter Script-Parser"
-        echo "Version: 1.0"
+        echo "Version: 1.1"
         echo "Operations: uninstall"
         ;;
 	uninstall)
