@@ -1,0 +1,26 @@
+#!/bin/sh
+
+case "$1" in
+
+	""|start|restart|stop)
+		exit 0
+		;;
+
+	info)
+        echo "Info: <center><b>erweiterter Script-Parser</b></center>"
+        echo "Info: <center><br>Aufruf:<br><a href="/addons/script" target="_blank">http://IPAdressederCCU/addons/script</a></center>"
+        echo "Name: erweiterter Script-Parser"
+        echo "Version: 1.0"
+        echo "Operations: uninstall"
+        ;;
+	uninstall)
+		rm -r /usr/local/etc/config/addons/www/script
+		;;
+	*)
+        echo "Usage: scriptparser {info|uninstall}" >&2
+        exit 1
+        ;; 
+
+esac 
+
+exit 0

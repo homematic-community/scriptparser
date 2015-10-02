@@ -1,0 +1,34 @@
+#!/bin/sh
+ADDONENAME=script
+RCDDIR=/usr/local/etc/config/rc.d
+ADDONDIR=/usr/local/etc/config/addons/$ADDONENAME
+WWWDIR=/usr/local/etc/config/addons/www/$ADDONENAME
+CONFIGDIR=/usr/local/etc/config
+
+mkdir -p /mnt
+
+if [ "$1" != "" ]; then
+	echo "CCU2"
+	mount -t ubifs ubi0:root /mnt
+	mount -t ubifs ubi1:user /usr/local
+	
+	#www
+	mkdir -p $WWWDIR
+	cp -R script /usr/local/etc/config/addons/www/
+	chmod 775 $WWWDIR
+
+	cp ./scriptparser $RCDDIR
+	chmod +x /usr/local/etc/config/rc.d/scriptparser
+
+	echo "dismount"
+	umount /usr/local
+	umount /mnt
+else
+	echo "CCU1"
+	mount -t yaffs /dev/mtdblock3 /mnt
+	cp -R ./script /mnt/etc/config/addons/www/
+	cp ./scriptparser /mnt/etc/config/rc.d
+	chmod +x /mnt/etc/config/rc.d/scriptparser
+
+	umount /mnt
+fi

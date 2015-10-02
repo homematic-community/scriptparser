@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>HM Script Executor</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+  <div id="page">
+	  <h1>HomeMatic Script Executor</h1>
+	  <hr />
+	   
+	  <div class="caption">Eingabe:</div>
+	  <div class="content">
+	  	<table width="100%" border="0">
+	   		<tr>
+	   			<td width="150px">
+			      <div>
+			        <a class="right" href="javascript:showCachedPages();">gecachte Seiten zeigen</a>
+			        <div class="clear"></div>
+			      </div>
+			    </td>
+			    <td width="150px">
+			      <div>
+			        <!--<a class="right" href="javascript:clearCache();">Cache löschen</a>
+			        <div class="clear"></div>-->
+			      </div>
+			    </td>
+			    <td width="150px">
+			      <div>
+			        <!--<a class="right" href="javascript:disableCache();">Cache deaktivieren</a>
+			        <div class="clear"></div>-->
+			      </div>
+			    </td>
+			    <td width="150px">
+			      <div>
+			        <!--<a class="right" href="javascript:enableCache();">Cache aktivieren</a>
+			        <div class="clear"></div>-->
+			      </div>
+			    </td>
+				  <td>
+				  	&nbsp;
+				  </td>
+				</tr>
+	   		<tr>
+	   			<td width="150px">
+			      <div>
+			        <a class="right" href="javascript:getDevicesChannelsDPs();">CCU-Inventur (Geräte, Kanäle, Datenpunkte) zeigen</a>
+			        <div class="clear"></div>
+			      </div>
+			    </td>
+	   			<td width="150px">
+			      <div>
+			        <a class="right" href="javascript:getVariables();">Variablen zeigen</a>
+			        <div class="clear"></div>
+			      </div>
+			    </td>
+	   			<td width="150px">
+			      <div>
+			        <a class="right" href="javascript:getPrograms();">Programme zeigen</a>
+			        <div class="clear"></div>
+			      </div>
+			    </td>
+				  <td colspan="2">
+				  	&nbsp;
+				  </td>
+			  </tr>
+	   		<tr>
+	   			<td colspan="5">
+				  	Um detaillierte Fehlermeldungen zu sehen: putty-Session zur CCU starten (<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">putty</a>, <a href="http://www.homematic-inside.de/index.php/software.html?view=item&item_id=35" target="_blank">Telnet-HowTo</a>), einloggen, Befehl 'tail -f /var/log/messages | grep "Error.*near"' (ohne führendes und endendes ' eingeben!) eingeben.
+				  </td>
+			  </tr>
+			</table>
+	    <textarea id="input" wrap="off">WriteLine("Hallo Welt");</textarea>
+	    <div>
+	      <a class="right" href="javascript:runScript();">Ausführen</a>
+	      <div class="clear"></div>
+	    </div>
+	  </div>
+	  <hr />
+	  <div class="caption">Ausgabe:</div>
+	  <div class="content">
+	    <textarea id="output" wrap="off"></textarea>
+	    <div>
+	      <a class="left" href="javascript:showJson();">JSON</a>
+	      <a class="left" href="javascript:showStdout();">STDOUT</a>
+	      <div class="clear"></div>
+	    </div>
+	  </div>
+	  <div style="height:10px;">&nbsp;</div>
+	  
+  </div>
+</body>
+</html>
