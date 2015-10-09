@@ -16,10 +16,15 @@ elif [ "$1" == "HM-RASPBERRYMATIC" ]; then
   mount /usr/local
 fi
 
+# cleanup
 mkdir -p $WWWDIR
+rm -rf $WWWDIR/*
+
+# copy data
 cp -R $ADDONNAME/* $WWWDIR/
 chmod 755 $WWWDIR
 
+# copy rc.d
 cp scriptparser $RCDDIR/
 chmod +x $RCDDIR/scriptparser
 

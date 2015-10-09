@@ -14,7 +14,7 @@ case "$1" in
     echo "Version: $VER"
     echo "Operations: uninstall"
     echo "Config-Url: /addons/script"
-    #echo "Update: http://raw.githubusercontent.com/jens-maus/scriptparser/master/VERSION"
+    echo "Update: /addons/script/update-check.cgi"
   ;;
 
   uninstall)
