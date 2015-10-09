@@ -2,24 +2,29 @@
 
 case "$1" in
 
-	""|start|restart|stop)
-		exit 0
-		;;
+  ""|start|restart|stop)
+    exit 0
+  ;;
 
-	info)
-        echo "Info: <center><b>erweiterter Script-Parser</b></center>"
-        echo "Info: <center><br>Aufruf:<br><a href="/addons/script" target="_blank">http://IPAdressederCCU/addons/script</a></center>"
-        echo "Name: erweiterter Script-Parser"
-        echo "Version: 1.1"
-        echo "Operations: uninstall"
-        ;;
-	uninstall)
-		rm -r /usr/local/etc/config/addons/www/script
-		;;
-	*)
-        echo "Usage: scriptparser {info|uninstall}" >&2
-        exit 1
-        ;; 
+  info)
+    VER=`cat /etc/config/addons/www/script/VERSION`
+    echo "Info: <b>Script-Parser CCU Addon</b><br>"
+    echo "Info: <a href='https://github.com/jens-maus/scriptparser'>https://github.com/jens-maus/scriptparser</a>"
+    echo "Name: Script-Parser"
+    echo "Version: $VER"
+    echo "Operations: uninstall"
+    echo "Config-Url: /addons/script"
+    #echo "Update: http://raw.githubusercontent.com/jens-maus/scriptparser/master/VERSION"
+  ;;
+
+  uninstall)
+    rm -r /usr/local/etc/config/addons/www/script
+  ;;
+
+  *)
+    echo "Usage: scriptparser {info|uninstall}" >&2
+    exit 1
+  ;; 
 
 esac 
 
