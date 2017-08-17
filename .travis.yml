@@ -1,0 +1,3 @@
+language: bash
+
+script: ./generate_img.sh
