@@ -9,3 +9,4 @@ deploy:
     repo: litti/scriptparser
     tags: true
     all_branches: true
+    skip_cleanup: true
