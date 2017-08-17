@@ -8,3 +8,4 @@ deploy:
   on:
     repo: litti/scriptparser
     tags: true
+    all_branches: true
