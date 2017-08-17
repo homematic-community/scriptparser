@@ -7,3 +7,4 @@ deploy:
   file: scriptparser-$(cat ./VERSION).tar.gz
   on:
     repo: litti/scriptparser
+    tags: true
