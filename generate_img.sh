@@ -8,4 +8,3 @@ cd tmp
 tar -czvf ../scriptparser-$(cat ../VERSION).tar.gz *
 cd ..
 rm -rf tmp
-ls -al
