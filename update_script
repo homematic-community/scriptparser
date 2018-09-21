@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ADDONNAME=script
 WWWDIR=/usr/local/etc/config/addons/www/$ADDONNAME
@@ -35,8 +35,6 @@ chmod +x $RCDDIR/scriptparser
 # sync filesystem to make sure all changes are written to disk
 sync
 
-exit
-
 if [ "$1" = "" ]; then
   echo "CCU1"
   lcdtool "Reboot...             "
@@ -53,6 +51,8 @@ elif [ "$1" == "HM-DOCKER-AMD64" ]; then
   /etc/init.d/ccu2 restart
 elif [ "$1" = "HM-RASPBERRYMATIC" ]; then
   echo "HM-RASPBERRYMATIC"
-  umount /usr/local
   # RASPBERRYMATIC always reboots after Addon/Firmware Update
 fi
+
+# signal success without requiring a reboot
+exit 0

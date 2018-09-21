@@ -9,7 +9,7 @@ case "$1" in
   info)
     VER=`cat /etc/config/addons/www/script/VERSION`
     echo "Info: <b>Script-Parser CCU Addon</b><br>"
-    echo "Info: <a href='https://github.com/jens-maus/scriptparser'>https://github.com/jens-maus/scriptparser</a>"
+    echo "Info: <a href='https://github.com/litti/scriptparser'>https://github.com/litti/scriptparser</a>"
     echo "Name: Script-Parser"
     echo "Version: $VER"
     echo "Operations: uninstall"
