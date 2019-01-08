@@ -18,7 +18,7 @@ proc toString { str } {
   return "\"[string map $map $str]\""
 }
 
-puts "Content-Type: text/plain"
+puts "Content-Type: text/plain; charset=ISO-8859-1"
 puts ""
 
 
