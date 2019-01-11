@@ -13,14 +13,19 @@ proc toString { str } {
     "\f"  "\\f" 
     "\n"  "\\n" 
     "\r"  "\\r" 
-    "\t"  "\\t" 
+    "\ä"  "\%E4"
+    "\ö"  "\%F6"
+    "\ü"  "\%FC"
+    "\Ä"  "\%C4"
+    "\Ö"  "\%D6"
+    "\Ü"  "\%DC"
+    "\ß"  "\%DF"
   }
   return "\"[string map $map $str]\""
 }
 
-puts "Content-Type: text/plain; charset=ISO-8859-1"
+puts "Content-Type: text/plain; charset=windows-1252"
 puts ""
-
 
 if { [catch {
   set content [read stdin]
@@ -40,6 +45,3 @@ if { [catch {
 } errorMessage] } {
   puts $errorMessage
 }
-
-
-
