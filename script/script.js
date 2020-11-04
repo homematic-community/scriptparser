@@ -1,5 +1,6 @@
-textOutput = "";
-mode = "json";
+var textOutput = "";
+var mode = "json";
+var SessionId = "";
 
 $ = function(id)
 {
@@ -44,7 +45,7 @@ xhr =
 runScript = function(script)
 {
   var req = xhr.create();
-  req.open("POST", "exec.cgi", true);
+  req.open("POST", "exec.cgi?sid="+SessionId, true);
   req.setRequestHeader('X-Test', 'two');
   //req.setRequestHeader('Content-Type', 'text/plain; charset=windows-1252');
   req.onload = xhrOnload;
@@ -119,7 +120,7 @@ getStdout = function()
   }
   catch (ex)
   {
-    result = "INVALID JSON";
+    result = "INVALID JSON: " + textOutput;
   }
 
   return result;
@@ -143,6 +144,18 @@ startup = function()
   mode = "stdout";
   $("input").value = "WriteLine(\"Hallo Welt!\");";
   $("output").value = "";
+
+  if (location.search)
+  {
+    if (location.search.indexOf("sid=") > -1)
+    {
+      var teil = location.search.substring(location.search.indexOf("sid=") + 4);
+      if (teil.indexOf("&") > -1)
+        SessionId = teil.substring(0, teil.indexOf("&"));
+      else
+        SessionId = teil;
+    }
+  }
 };
 
 window.onload = startup;
