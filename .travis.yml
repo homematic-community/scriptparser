@@ -7,6 +7,6 @@ deploy:
     secure: dabZxO1THS0hGfqUU5pH8jhHMrTlrq4mZk0bs678pO54Gc7lMGb82SY1J5InJxMBeNBlj9SrNF3wy7lJDz9QS59zciPaB7N2hkSbmeOMRWtXhY23TwZoNG4IqxUcmuQQReJwtvqWYDGquZXi7ZKjSGjrsuTY2+DBeKfC+/YDW8aXo70wthCBRHnRLXKdqGRkBUx8zGMjlgkZBS1SBgb2odIg+GX2MXGPeb3/vuQ204AHpj0T98nk+HZ7YeGM5ucRo53ncSGCIWKMFdB8JnnXjq0Dwiaf0IXJ/gcQ5GW5a770rmiep4ttqMBfNKWwg9Xr8xHkZO79eskgMK5OiSxEu4ySH5Eh7C1Q5GWK5ZqChekTDtsiOxSkz1hpjHn6LyyPOmPCz70qD5kDZgKbHoBAJShaYFjHVSp+F0RSwlmoBexUIBgQ1K6C3nFvLCEe8dWfPc9/48DFKs6mKwajd9vYhrSQ4MabxZFEfSZ0I9yHY2DKl7zTMSpDfzCsuVSlN17Sn6ztApjwwC5cSGrPV8lvTlzdMau5THECwUS5nXdLMxVp3fKc1RwxQQEtiMRdWXRFRoLlwxACKNXQ8IOL9UsjujK7H3547oyKzPGtv9APOguhZ8wT6rRLwImHALZmXxlpqm7l8GSr2/iHZJmcbcu+wR/V4npLUqqjGfQuL1UwCzI=
   file: scriptparser-$(cat ./VERSION).tar.gz
   on:
-    repo: litti/scriptparser
+    repo: homematic-community/scriptparser
     tags: true
     all_branches: true

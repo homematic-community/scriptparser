@@ -1,7 +1,7 @@
 #!/bin/tclsh
 
-set checkURL    "https://raw.githubusercontent.com/litti/scriptparser/master/VERSION"
-set downloadURL "https://github.com/litti/scriptparser/releases/latest"
+set checkURL    "https://raw.githubusercontent.com/homematic-community/scriptparser/master/VERSION"
+set downloadURL "https://github.com/homematic-community/scriptparser/releases/latest"
 
 catch {
   set input $env(QUERY_STRING)
