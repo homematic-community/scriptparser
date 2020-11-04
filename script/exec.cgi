@@ -47,7 +47,8 @@ proc toString { str } {
 puts "Content-Type: text/plain; charset=iso-8859-1"
 puts ""
 
-if {[info exists sid] && [check_session $sid]} {
+if {[file exists /etc/config/addons/www/script/NoSessionCheck] ||
+    [info exists sid] && [check_session $sid]} {
   if { [catch {
     set content [read stdin]
     array set script_result [rega_script $content]
