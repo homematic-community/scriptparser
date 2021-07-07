@@ -15,7 +15,7 @@ case "$1" in
     VER=`cat /etc/config/addons/www/script/VERSION`
     echo "Info: <b>Script-Parser CCU Addon</b><br/>"
     echo "Info: Erweiterter ReGa-Skript Parser/Tool<br/><br/>"
-    echo "Info: (c) 2015-2020 Andre Litfin, Jens Maus<br/>"
+    echo "Info: (c) 2015-2021 Andre Litfin, Jens Maus<br/>"
     echo "Info: <a href='https://github.com/homematic-community/scriptparser'>https://github.com/homematic-community/scriptparser</a>"
     echo "Name: Script-Parser"
     echo "Version: $VER"
